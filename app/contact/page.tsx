@@ -33,13 +33,7 @@ export default function ContactPage() {
       href: "#",
       color: "bg-red-500/10 text-red-600 hover:bg-red-500/20",
     },
-    {
-      name: "WhatsApp/Telegram",
-      description: { sq: "Komunikim i shpejtë", en: "Quick communication" },
-      icon: MessageCircle,
-      href: "#",
-      color: "bg-green-500/10 text-green-600 hover:bg-green-500/20",
-    },
+
   ]
 
   const partners = [
