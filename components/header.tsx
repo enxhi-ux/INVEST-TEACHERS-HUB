@@ -33,11 +33,11 @@ export function Header({ lang, onLanguageChange }: HeaderProps) {
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
             <Image
-              src="/logo.jpg"
+              src="/logo.png"
               alt="INVEST Teachers Hub Logo"
-              width={180}
-              height={48}
-              className="h-12 w-auto"
+              width={200}
+              height={56}
+              className="h-14 w-auto"
             />
           </Link>
 

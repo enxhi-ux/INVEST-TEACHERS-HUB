@@ -86,11 +86,11 @@ export default function HomePage() {
             <div className="text-center max-w-3xl mx-auto">
               <div className="flex justify-center mb-8">
                 <Image
-                  src="/logo.jpg"
+                  src="/logo.png"
                   alt="INVEST Teachers Hub Albania"
-                  width={280}
-                  height={80}
-                  className="h-20 w-auto"
+                  width={320}
+                  height={100}
+                  className="h-24 w-auto"
                   priority
                 />
               </div>
@@ -169,36 +169,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-16 bg-primary">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-              <div className="text-center lg:text-left">
-                <h2 className="text-2xl sm:text-3xl font-bold text-primary-foreground mb-2">
-                  {t.home.ctaTitle}
-                </h2>
-                <p className="text-primary-foreground/80">{t.home.ctaDesc}</p>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/membership">
-                  <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 gap-2">
-                    <UserPlus className="h-5 w-5" />
-                    {t.home.membershipTerms}
-                  </Button>
-                </Link>
-                <Link href="/contact">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 bg-transparent"
-                  >
-                    {t.nav.contact}
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        
       </main>
 
       <Footer lang={lang} />
