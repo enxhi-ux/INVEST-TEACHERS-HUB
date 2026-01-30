@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
-import { Phone, Mail, MapPin, Facebook, Linkedin, Youtube, MessageCircle, Building2, Globe, Users, ExternalLink } from "lucide-react"
+import { Phone, Mail, MapPin, Facebook, Linkedin, Youtube, Instagram, Building2, Globe, Users, ExternalLink } from "lucide-react"
 import { type Language, translations } from "@/components/language-switcher"
 
 export default function ContactPage() {
@@ -13,27 +13,33 @@ export default function ContactPage() {
 
   const socialLinks = [
     {
-      name: "Facebook Group",
+      name: "Facebook",
       description: { sq: "Komunitet & njoftime", en: "Community & announcements" },
       icon: Facebook,
-      href: "#",
+      href: "https://www.facebook.com/albanianskillsofficial/",
       color: "bg-blue-500/10 text-blue-600 hover:bg-blue-500/20",
     },
     {
       name: "LinkedIn",
       description: { sq: "Rrjetëzim profesional", en: "Professional networking" },
       icon: Linkedin,
-      href: "#",
+      href: "https://al.linkedin.com/company/albanianskills-national-association-for-skills-competitions-nasc",
       color: "bg-sky-500/10 text-sky-600 hover:bg-sky-500/20",
     },
     {
       name: "YouTube",
       description: { sq: "Video trajnimi", en: "Training videos" },
       icon: Youtube,
-      href: "#",
+      href: "https://www.youtube.com/@albanianskillsofficial2012/videos",
       color: "bg-red-500/10 text-red-600 hover:bg-red-500/20",
     },
-
+    {
+      name: "Instagram",
+      description: { sq: "Foto & momente", en: "Photos & moments" },
+      icon: Instagram,
+      href: "https://www.instagram.com/albanianskills/?hl=en",
+      color: "bg-pink-500/10 text-pink-600 hover:bg-pink-500/20",
+    },
   ]
 
   const partners = [
@@ -67,26 +73,16 @@ export default function ContactPage() {
         {/* Contact Info */}
         <section className="py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="grid md:grid-cols-2 gap-8 mb-16">
               <Card className="text-center border-none shadow-lg">
                 <CardContent className="p-8">
                   <div className="h-14 w-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                     <Mail className="h-7 w-7 text-primary" />
                   </div>
                   <h3 className="font-semibold text-foreground mb-2">{t.contact.email}</h3>
-                  <a href="mailto:info@albanianskills.al" className="text-muted-foreground hover:text-primary transition-colors">
-                    info@albanianskills.al
+                  <a href="mailto:info@albanianskills.org" className="text-muted-foreground hover:text-primary transition-colors">
+                    info@albanianskills.org
                   </a>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center border-none shadow-lg">
-                <CardContent className="p-8">
-                  <div className="h-14 w-14 rounded-full bg-secondary/10 flex items-center justify-center mx-auto mb-4">
-                    <Phone className="h-7 w-7 text-secondary" />
-                  </div>
-                  <h3 className="font-semibold text-foreground mb-2">{t.contact.phone}</h3>
-                  <p className="text-muted-foreground">+355 4 XXX XXXX</p>
                 </CardContent>
               </Card>
 
@@ -96,13 +92,27 @@ export default function ContactPage() {
                     <MapPin className="h-7 w-7 text-accent" />
                   </div>
                   <h3 className="font-semibold text-foreground mb-2">{t.contact.location}</h3>
-                  <p className="text-muted-foreground">
-                    {lang === "sq" ? "Zyra Albanian Skills" : "Albanian Skills Office"}
-                    <br />
-                    Tiranë, Shqipëri
+                  <p className="text-muted-foreground text-sm">
+                    Ish Fusha e Aviacionit, Rruga Andrea Kushi,<br />
+                    Kompleksi Garden Turdiu, Kulla E, Apt 1/4,<br />
+                    Tirana, Albania
                   </p>
                 </CardContent>
               </Card>
+            </div>
+
+            {/* Albanian Skills Link */}
+            <div className="mb-16 text-center">
+              <a 
+                href="https://www.albanianskills.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+              >
+                <Globe className="h-5 w-5" />
+                {lang === "sq" ? "Vizito faqen Albanian Skills" : "Visit Albanian Skills website"}
+                <ExternalLink className="h-4 w-4" />
+              </a>
             </div>
 
             {/* Social Media */}
@@ -113,6 +123,8 @@ export default function ContactPage() {
                   <a
                     key={index}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`flex items-center gap-4 p-4 rounded-xl transition-colors ${social.color}`}
                   >
                     <social.icon className="h-8 w-8" />

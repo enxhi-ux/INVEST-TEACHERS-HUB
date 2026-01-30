@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -14,7 +15,6 @@ import {
   UserPlus,
   Phone,
   ArrowRight,
-  CheckCircle,
   Heart,
   ImageIcon,
   FileText,
@@ -84,14 +84,16 @@ export default function HomePage() {
         <section className="relative bg-gradient-to-br from-primary/10 via-background to-secondary/10 py-20 lg:py-28">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6">
-                <GraduationCap className="h-5 w-5 text-primary" />
-                <span className="text-sm font-medium text-primary">{t.home.badge}</span>
+              <div className="flex justify-center mb-8">
+                <Image
+                  src="/logo.jpg"
+                  alt="INVEST Teachers Hub Albania"
+                  width={280}
+                  height={80}
+                  className="h-20 w-auto"
+                  priority
+                />
               </div>
-
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
-                {t.home.title}
-              </h1>
 
               <p className="text-lg sm:text-xl text-muted-foreground mb-6 leading-relaxed">
                 {t.home.description}
@@ -104,9 +106,9 @@ export default function HomePage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/apply">
+                <Link href="/membership">
                   <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground gap-2">
-                    {t.home.applyBtn}
+                    {t.home.membershipTerms}
                     <ArrowRight className="h-4 w-4" />
                   </Button>
                 </Link>
@@ -121,7 +123,7 @@ export default function HomePage() {
             {/* Quick Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-4xl mx-auto">
               {[
-                { value: "5", label: t.home.stats.directions },
+                { value: "5+", label: t.home.stats.directions },
                 { value: "12+", label: t.home.stats.activities },
                 { value: "100+", label: t.home.stats.teachers },
                 { value: "2026", label: t.home.stats.year },
@@ -178,19 +180,19 @@ export default function HomePage() {
                 <p className="text-primary-foreground/80">{t.home.ctaDesc}</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/apply">
+                <Link href="/membership">
                   <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 gap-2">
-                    <CheckCircle className="h-5 w-5" />
-                    {t.nav.apply}
+                    <UserPlus className="h-5 w-5" />
+                    {t.home.membershipTerms}
                   </Button>
                 </Link>
-                <Link href="/membership">
+                <Link href="/contact">
                   <Button
                     size="lg"
                     variant="outline"
                     className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 bg-transparent"
                   >
-                    {t.home.membershipTerms}
+                    {t.nav.contact}
                   </Button>
                 </Link>
               </div>

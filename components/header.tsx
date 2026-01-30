@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ExternalLink } from "lucide-react"
 import { LanguageSwitcher, type Language, translations } from "./language-switcher"
 
 interface HeaderProps {
@@ -35,7 +35,7 @@ export function Header({ lang, onLanguageChange }: HeaderProps) {
             <Image
               src="/logo.jpg"
               alt="INVEST Teachers Hub Logo"
-              width={140}
+              width={180}
               height={48}
               className="h-12 w-auto"
             />
@@ -56,6 +56,15 @@ export function Header({ lang, onLanguageChange }: HeaderProps) {
 
           <div className="flex items-center gap-3">
             <LanguageSwitcher currentLang={lang} onLanguageChange={onLanguageChange} />
+            <a 
+              href="https://www.albanianskills.org/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hidden sm:flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+            >
+              Albanian Skills
+              <ExternalLink className="h-3.5 w-3.5" />
+            </a>
             <button
               type="button"
               className="xl:hidden p-2 rounded-md text-muted-foreground hover:bg-muted"
@@ -80,6 +89,16 @@ export function Header({ lang, onLanguageChange }: HeaderProps) {
                   {item.name}
                 </Link>
               ))}
+              <a 
+                href="https://www.albanianskills.org/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-primary hover:text-primary/80 mt-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Albanian Skills
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
             </div>
           </div>
         )}

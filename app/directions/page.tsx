@@ -5,7 +5,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Compass, Monitor, Building2, Plane, Briefcase, Heart, Clock } from "lucide-react"
+import { Compass, Monitor, Building2, Plane, Briefcase, Heart, Clock, Plus } from "lucide-react"
 import { type Language, translations } from "@/components/language-switcher"
 
 const directions = [
@@ -118,6 +118,23 @@ export default function DirectionsPage() {
                   </CardContent>
                 </Card>
               ))}
+
+              {/* More Directions Coming */}
+              <Card className="border-dashed border-2 border-muted-foreground/20">
+                <CardContent className="p-8 flex flex-col items-center justify-center h-full text-center">
+                  <div className="h-14 w-14 rounded-xl bg-muted flex items-center justify-center mb-6">
+                    <Plus className="h-7 w-7 text-muted-foreground" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-muted-foreground mb-2">
+                    {lang === "sq" ? "Drejtime të Tjera" : "Other Directions"}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {lang === "sq"
+                      ? "Drejtime të tjera do të shtohen gradualisht bazuar në nevojat dhe interesin e mësuesve."
+                      : "Other directions will be added gradually based on teachers' needs and interests."}
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>

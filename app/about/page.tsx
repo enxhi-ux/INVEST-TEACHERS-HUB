@@ -55,9 +55,9 @@ export default function AboutPage() {
                 <Image
                   src="/teachers-professional-development-meeting-educatio.jpg"
                   alt="INVEST Teachers Meeting"
-                  width={600}
-                  height={400}
-                  className="rounded-2xl shadow-xl"
+                  width={500}
+                  height={300}
+                  className="rounded-2xl shadow-xl w-full h-auto max-h-[300px] object-cover"
                 />
               </div>
             </div>

@@ -39,20 +39,20 @@ export function Footer({ lang }: FooterProps) {
               <Image
                 src="/logo.jpg"
                 alt="INVEST Teachers Hub Logo"
-                width={160}
-                height={56}
-                className="h-14 w-auto bg-background rounded-lg p-1"
+                width={180}
+                height={48}
+                className="h-12 w-auto bg-background rounded-lg p-1"
               />
             </Link>
             <p className="text-sm opacity-80 max-w-md mb-4">{t.footer.description}</p>
-            <a
+            <a 
               href="https://www.albanianskills.org/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm opacity-80 hover:opacity-100 transition-opacity"
+              className="inline-flex items-center gap-1.5 text-sm opacity-80 hover:opacity-100 transition-opacity"
             >
-              <ExternalLink className="h-4 w-4" />
               www.albanianskills.org
+              <ExternalLink className="h-3.5 w-3.5" />
             </a>
             <div className="flex gap-4 mt-6">
               {navigation.social.map((item) => (
@@ -97,9 +97,7 @@ export function Footer({ lang }: FooterProps) {
               <li className="flex items-start gap-2 text-sm opacity-80">
                 <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
                 <span>
-                  Ish Fusha e Aviacionit, Rruga Andrea Kushi,<br />
-                  Kompleksi Garden Turdiu, Kulla E, Apt 1/4,<br />
-                  Tiranë, Shqipëri
+                  Ish Fusha e Aviacionit, Rruga Andrea Kushi, Kompleksi Garden Turdiu, Kulla E, Apt 1/4, Tirana, Albania
                 </span>
               </li>
             </ul>

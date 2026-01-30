@@ -1,11 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { 
   UserPlus, 
   GraduationCap, 
@@ -13,10 +11,10 @@ import {
   Building2, 
   Users, 
   CheckCircle, 
-  ArrowRight,
   Award,
   Heart,
-  DoorOpen
+  DoorOpen,
+  Info
 } from "lucide-react"
 import { type Language, translations } from "@/components/language-switcher"
 
@@ -187,14 +185,18 @@ export default function MembershipPage() {
                 </ul>
               </div>
               <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-8 text-center">
-                <h3 className="text-2xl font-bold text-foreground mb-4">{t.membership.readyToJoin}</h3>
-                <p className="text-muted-foreground mb-6">{t.membership.readyToJoinDesc}</p>
-                <Link href="/apply">
-                  <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground gap-2">
-                    {t.nav.apply}
-                    <ArrowRight className="h-4 w-4" />
-                  </Button>
-                </Link>
+                <Info className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="text-2xl font-bold text-foreground mb-4">
+                  {lang === "sq" ? "Si të Bëheni Antar?" : "How to Become a Member?"}
+                </h3>
+                <p className="text-muted-foreground mb-4">
+                  {lang === "sq"
+                    ? "Për tu bërë pjesë e rrjetit INVEST Teachers Hub Albania, ju lutem na kontaktoni përmes email-it ose rrjeteve sociale."
+                    : "To become part of the INVEST Teachers Hub Albania network, please contact us via email or social media."}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  <strong>Email:</strong> info@albanianskills.org
+                </p>
               </div>
             </div>
           </div>
