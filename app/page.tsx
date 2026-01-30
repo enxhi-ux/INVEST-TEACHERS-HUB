@@ -81,39 +81,41 @@ export default function HomePage() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-primary/10 via-background to-secondary/10 py-20 lg:py-28">
+        <section className="relative bg-gradient-to-b from-[#e8f4f8] via-[#f0f7f9] to-background py-20 lg:py-28">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto">
-              <div className="flex justify-center mb-8">
-                <Image
-                  src="/logo.png"
-                  alt="INVEST Teachers Hub Albania"
-                  width={320}
-                  height={100}
-                  className="h-24 w-auto"
-                  priority
-                />
+            <div className="text-center max-w-4xl mx-auto">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0d7377] rounded-full mb-10">
+                <GraduationCap className="h-5 w-5 text-white" />
+                <span className="text-sm font-medium text-white">{t.home.badge}</span>
               </div>
 
-              <p className="text-lg sm:text-xl text-muted-foreground mb-6 leading-relaxed">
+              {/* Title */}
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight text-balance">
+                {t.home.title}
+              </h1>
+
+              {/* Description */}
+              <p className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed max-w-3xl mx-auto text-pretty">
                 {t.home.description}
               </p>
 
               {/* Voluntary Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 rounded-full mb-8">
-                <Heart className="h-5 w-5 text-secondary" />
-                <span className="text-sm font-medium text-secondary">{t.home.voluntary} - {t.home.voluntaryDesc}</span>
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0d7377]/10 border border-[#0d7377]/20 rounded-full mb-10">
+                <Heart className="h-5 w-5 text-[#0d7377]" />
+                <span className="text-sm font-medium text-[#0d7377]">{t.home.voluntary} - {t.home.voluntaryDesc}</span>
               </div>
 
+              {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/membership">
-                  <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground gap-2">
-                    {t.home.membershipTerms}
-                    <ArrowRight className="h-4 w-4" />
+                  <Button size="lg" className="bg-[#0d7377] hover:bg-[#0a5f62] text-white gap-2 px-8 h-12 text-base">
+                    {t.home.applyBtn}
+                    <ArrowRight className="h-5 w-5" />
                   </Button>
                 </Link>
                 <Link href="/about">
-                  <Button size="lg" variant="outline" className="gap-2 bg-transparent">
+                  <Button size="lg" variant="outline" className="gap-2 bg-transparent border-2 border-border hover:bg-muted px-8 h-12 text-base">
                     {t.home.learnMore}
                   </Button>
                 </Link>
@@ -123,14 +125,14 @@ export default function HomePage() {
             {/* Quick Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-4xl mx-auto">
               {[
-                { value: "5+", label: t.home.stats.directions },
+                { value: "5", label: t.home.stats.directions },
                 { value: "12+", label: t.home.stats.activities },
                 { value: "100+", label: t.home.stats.teachers },
-                { value: "2026", label: t.home.stats.year },
+                { value: "2026", label: t.home.stats.year, highlight: true },
               ].map((stat) => (
-                <div key={stat.label} className="bg-card rounded-xl p-4 text-center border border-border">
-                  <div className="text-2xl sm:text-3xl font-bold text-primary">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
+                <div key={stat.label} className="bg-card rounded-xl p-6 text-center border border-border shadow-sm">
+                  <div className={`text-3xl sm:text-4xl font-bold ${stat.highlight ? 'text-[#0d7377]' : 'text-foreground'}`}>{stat.value}</div>
+                  <div className="text-sm text-muted-foreground mt-2">{stat.label}</div>
                 </div>
               ))}
             </div>

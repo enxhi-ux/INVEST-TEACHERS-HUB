@@ -30,14 +30,15 @@ export function Header({ lang, onLanguageChange }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 bg-card/95 backdrop-blur border-b border-border">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
             <Image
               src="/logo.png"
               alt="INVEST Teachers Hub Logo"
-              width={200}
-              height={56}
-              className="h-14 w-auto"
+              width={240}
+              height={64}
+              className="h-16 w-auto"
+              priority
             />
           </Link>
 
