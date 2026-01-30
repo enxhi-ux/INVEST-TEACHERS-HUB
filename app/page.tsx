@@ -140,23 +140,37 @@ export default function HomePage() {
         </section>
 
         {/* Navigation Cards */}
-        <section className="py-16 lg:py-24 bg-muted/30">
+        <section className="py-16 lg:py-20 bg-muted/30">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-4">{t.home.explore}</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">{t.home.exploreDesc}</p>
+            {/* First row - text only cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+              {navigationCards.slice(0, 4).map((card) => (
+                <Link
+                  key={card.title}
+                  href={card.href}
+                  className="group bg-card rounded-xl p-6 border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="text-center">
+                    <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors mb-2">
+                      {card.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">{card.description}</p>
+                  </div>
+                </Link>
+              ))}
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {navigationCards.map((card) => (
+            {/* Second row - cards with icons */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {navigationCards.slice(4).map((card) => (
                 <Link
                   key={card.title}
                   href={card.href}
                   className="group bg-card rounded-xl p-6 border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300"
                 >
                   <div className="flex flex-col items-center text-center gap-4">
-                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                      <card.icon className="h-7 w-7 text-primary" />
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#e8f4f8] group-hover:bg-[#d0eaef] transition-colors">
+                      <card.icon className="h-7 w-7 text-[#0d7377]" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors mb-2">
@@ -171,7 +185,32 @@ export default function HomePage() {
           </div>
         </section>
 
-        
+        {/* CTA Section */}
+        <section className="py-16 bg-[#1a4a5e]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+              <div className="text-center lg:text-left">
+                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
+                  {t.home.ctaTitle}
+                </h2>
+                <p className="text-white/80">{t.home.ctaDesc}</p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/membership">
+                  <Button size="lg" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white/10 gap-2 px-6">
+                    <UserPlus className="h-5 w-5" />
+                    {t.home.membershipTerms}
+                  </Button>
+                </Link>
+                <Link href="/contact">
+                  <Button size="lg" className="bg-[#0d7377] hover:bg-[#0a5f62] text-white px-6">
+                    {t.nav.contact}
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
       <Footer lang={lang} />
